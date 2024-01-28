@@ -8,6 +8,10 @@ export async function GET(req, res) {
         id: true,
         name: true,
       },
+      orderBy: {
+        id: "desc",
+      },
+      take: 7,
     });
     return NextResponse.json({
       status: "success",

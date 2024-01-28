@@ -7,14 +7,11 @@ export async function GET(req, res) {
     const keyword = searchParams.get("keyword");
     const result = await prisma.news_list.findMany({
       where: { title: { contains: keyword } },
-      select: {
-        id: true,
-        title: true,
-        short_des: true,
-        img1: true,
-        img2: true,
-        img3: true,
-        img4: true,
+      orderBy: { createdAt: "desc" },
+      include: {
+        categories: {
+          select: { name: true },
+        },
       },
     });
     return NextResponse.json({ status: "success", data: result });

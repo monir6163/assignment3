@@ -12,7 +12,6 @@ const SubmitButton = (props) => {
   } else {
     return (
       <button disabled={true} className={props.className}>
-        <div className="spinner-border spinner-border-sm" role="status"></div>{" "}
         Processing...
       </button>
     );

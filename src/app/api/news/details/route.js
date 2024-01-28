@@ -7,6 +7,11 @@ export async function GET(req, res) {
     const id = searchParams.get("id");
     const result = await prisma.news_list.findUnique({
       where: { id: parseInt(id) },
+      include: {
+        categories: {
+          select: { name: true },
+        },
+      },
     });
     return NextResponse.json({ status: "success", data: result });
   } catch (e) {

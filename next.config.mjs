@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "photo.teamrabbil.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "library.ceu.edu",
+        pathname: "**",
+      },
+    ],
   },
-  cacheMaxMemorySize: 0,
 };
 
 export default nextConfig;
