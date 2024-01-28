@@ -1,3 +1,4 @@
+import { ErrorToast } from "@/Utility/FromHandler";
 import AppFooterBar from "./AppFooterBar";
 import AppNavBar from "./AppNavBar";
 import AppTopNav from "./AppTopNav";
@@ -16,7 +17,7 @@ const getData = async () => {
     )["data"];
     return { socialLinks: socialLinks, categories: categories };
   } catch (error) {
-    console.log(error);
+    ErrorToast(error.message);
   }
 };
 

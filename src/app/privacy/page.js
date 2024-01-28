@@ -13,7 +13,7 @@ async function getData() {
 }
 const page = async () => {
   const { privacy } = await getData();
-  console.log(privacy);
+
   return (
     <PlainLayout>
       <div className="container mx-auto px-4">

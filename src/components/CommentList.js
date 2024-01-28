@@ -4,7 +4,7 @@ import CommentForm from "./CommentForm";
 
 const CommentList = (props) => {
   const { comments, postID } = props;
-  console.log(comments);
+
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold text-purple-800">Comments</h2>

@@ -13,7 +13,7 @@ async function getData() {
 }
 const page = async () => {
   const { terms } = await getData();
-  console.log(terms);
+
   return (
     <PlainLayout>
       <div className="container mx-auto px-4">
