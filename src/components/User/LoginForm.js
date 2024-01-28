@@ -44,6 +44,7 @@ const LoginForm = () => {
         SuccessToast("Login Success");
         router.push("/");
       } else {
+        setSubmit(false);
         ErrorToast("Login Fail");
       }
     }

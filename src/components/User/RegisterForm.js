@@ -54,7 +54,7 @@ const RegisterForm = () => {
       let ResJson = await res.json();
       if (ResJson["status"] === "success") {
         SuccessToast("Registration Success");
-        router.push("/");
+        router.push("/user/login");
       } else {
         setSubmit(false);
         ErrorToast("Request Fail");

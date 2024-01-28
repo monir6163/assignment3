@@ -47,7 +47,12 @@ export default async function Home() {
   return (
     <PlainLayout>
       <div className="container">
-        <Hero slider={slider} featured={featured} />
+        <Hero
+          slider={slider}
+          featured={featured}
+          latest={latest}
+          popular={popular}
+        />
         <div className="py-5">
           <h5 className="text-xl font-bold mb-2">LATEST</h5>
           <hr className="border-b border-gray-300 mb-4" />
