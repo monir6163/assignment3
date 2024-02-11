@@ -21,9 +21,7 @@ const getData = async (id) => {
   const comments = (
     await (
       await fetch(`${process.env.HOST}/api/comments/news?postID=${id}`, {
-        next: {
-          revalidate: 1,
-        },
+        cache: "no-store",
       })
     ).json()
   )["data"];

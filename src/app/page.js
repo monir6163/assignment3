@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import PlainLayout from "@/components/Master/PlainLayout";
 import NewsList from "@/components/NewsList";
 import PopularNewsList from "@/components/PopularNewsList";
-
 const getData = async () => {
   let slider = (
     await (
@@ -44,6 +43,7 @@ const getData = async () => {
 
 export default async function Home() {
   const { slider, featured, latest, popular } = await getData();
+
   return (
     <PlainLayout>
       <div className="container">

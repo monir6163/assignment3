@@ -1,4 +1,5 @@
 import { ErrorToast } from "@/Utility/FromHandler";
+import { cookies } from "next/headers";
 import AppFooterBar from "./AppFooterBar";
 import AppNavBar from "./AppNavBar";
 import AppTopNav from "./AppTopNav";
@@ -23,10 +24,14 @@ const getData = async () => {
 
 const PlainLayout = async (props) => {
   const data = await getData();
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
+  let isLogin = false;
+  isLogin = token !== undefined ? true : false;
   return (
     <>
       <AppTopNav socialLinks={data?.socialLinks} />
-      <AppNavBar categories={data?.categories} />
+      <AppNavBar categories={data?.categories} isLogin={isLogin} />
       {props.children}
       <AppFooterBar
         socialLinks={data?.socialLinks}

@@ -11,6 +11,7 @@ export async function GET(req, res) {
         users: { select: { firstName: true, lastName: true } },
         // news_list:{select:{title:true}}
       },
+      orderBy: { createdAt: "desc" },
     });
     return NextResponse.json({ status: "success", data: result });
   } catch (e) {

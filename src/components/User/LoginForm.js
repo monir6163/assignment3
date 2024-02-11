@@ -87,20 +87,20 @@ const LoginForm = () => {
             text="Login"
           />
           <div className="flex justify-around">
-            <p class="text-center mt-2 text-sm text-gray-500">
+            <p className="text-center mt-2 text-sm text-gray-500">
               <Link
                 href={"/user/emailVerify"}
-                class="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none"
+                className="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none"
               >
                 Forgot Password
               </Link>
               .
             </p>
-            <p class="text-center mt-2 text-sm text-gray-500">
+            <p className="text-center mt-2 text-sm text-gray-500">
               Don&#x27;t have an account yet?
               <Link
                 href={"/user/registration"}
-                class="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none"
+                className="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none"
               >
                 Sign up
               </Link>

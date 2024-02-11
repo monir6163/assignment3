@@ -11,7 +11,6 @@ const CommentForm = (props) => {
   const [submit, setSubmit] = useState(false);
   const [login, SetLogin] = useState(false);
   const [data, setData] = useState({
-    postID: parseInt(props.postID),
     descriptions: "",
   });
 
@@ -41,7 +40,7 @@ const CommentForm = (props) => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, postID: props.postID }),
       };
 
       let res = await fetch("/api/comments/manage", options);
@@ -50,12 +49,12 @@ const CommentForm = (props) => {
       setSubmit(false);
       if (ResJson["status"] === "success") {
         SuccessToast("Success");
-        // Clear the textarea after successful submission
-        setData({ postID: parseInt(props.postID), descriptions: "" });
+        setData({
+          descriptions: "",
+        });
         router.refresh();
       } else {
         ErrorToast("Request Fail");
-        setData({ postID: parseInt(props.postID), descriptions: "" });
         setSubmit(false);
       }
     }
@@ -67,6 +66,7 @@ const CommentForm = (props) => {
         <p className="text-xl font-semibold text-blue-900 cursor-pointer transition-all hover:text-black">
           Add Comment
         </p>
+        <input type="hidden" name="postID" value={props.postID} />
         <textarea
           className="h-20 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm"
           placeholder="Add your comments here"

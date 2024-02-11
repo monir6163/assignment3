@@ -7,17 +7,20 @@ import { useEffect, useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 
 const AppNavBar = (props) => {
-  const { categories } = props;
+  const { categories, isLogin } = props;
+
   const [searchKey, setSearchKey] = useState("0");
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [login, setLogin] = useState(false);
   let pathName = usePathname();
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
   useEffect(() => {
     if (Cookies.get("token")) {
+      // console.log(Cookies.get("token"));
       setLogin(true);
     } else {
       setLogin(false);
@@ -118,10 +121,10 @@ const AppNavBar = (props) => {
             </div>
           </li>
           <li className="inline-block">
-            {login ? (
+            {isLogin === true || login ? (
               <Link href={"/dashboard"}>
                 <Image
-                  src={"/images/profile.png"}
+                  src={`/images/profile.png`}
                   width={40}
                   height={40}
                   priority={true}
